@@ -1,0 +1,25 @@
+{
+    "name": "duduke/e-log",
+    "description": "log format",
+    "authors": [
+        {
+            "name": "duduke",
+            "email": "346107105@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Duduke\\Elog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Duduke\\Elog\\Providers\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "ext-json": "*"
+    }
+}
