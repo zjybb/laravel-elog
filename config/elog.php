@@ -3,6 +3,7 @@
 return [
     'db_query' => [
         'enabled' => env('LOG_SQL_ENABLE', true),
+        'slow' => 2000,
         'filter' => [
             '/t/',
             '/telescope/',

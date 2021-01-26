@@ -43,6 +43,9 @@ class ServiceProvider extends IlluminateServiceProvider
         }
 
         DB::listen(function (QueryExecuted $query) {
+            if (config('elog.db_query.slow', 2000) >= $query->time) {
+                return;
+            }
             $sqlWithPlaceholders = str_replace(['%', '?'], ['%%', '%s'], $query->sql);
             $bindings = $query->connection->prepareBindings($query->bindings);
             $pdo = $query->connection->getPdo();
