@@ -3,20 +3,22 @@
 namespace Duduke\Elog\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 
 class ELog implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use InteractsWithQueue, Queueable;
+
+    public $queue = 'log';
+    public $backoff = 5;
+    public $tries = 2;
 
     protected $index;
     protected $context;
     protected $channel;
     protected $msg;
+
 
     /**
      * Create a new job instance.

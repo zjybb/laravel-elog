@@ -19,7 +19,7 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-
+        $this->mergeLogConfig();
     }
 
     public function boot()
@@ -30,7 +30,6 @@ class ServiceProvider extends IlluminateServiceProvider
             ], 'elog');
         }
 
-        $this->mergeLogConfig();
         $this->setLogDefault();
 
         config('elog.db_query.enabled', true) && $this->writeSqlLog();
