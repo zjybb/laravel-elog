@@ -20,6 +20,7 @@
         }
     },
     "require": {
-        "ext-json": "*"
+        "ext-json": "*",
+        "elasticsearch/elasticsearch": "^7.10"
     }
 }
