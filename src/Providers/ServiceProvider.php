@@ -5,6 +5,7 @@ namespace Duduke\Elog\Providers;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
+use Illuminate\Support\Str;
 
 
 class ServiceProvider extends IlluminateServiceProvider
@@ -37,6 +38,10 @@ class ServiceProvider extends IlluminateServiceProvider
 
     protected function writeSqlLog()
     {
+        if (Str::startsWith(request()->getPathInfo(), config('elog.db_query.filter', []))) {
+            return;
+        }
+
         DB::listen(function (QueryExecuted $query) {
             $sqlWithPlaceholders = str_replace(['%', '?'], ['%%', '%s'], $query->sql);
             $bindings = $query->connection->prepareBindings($query->bindings);

@@ -3,14 +3,28 @@
 return [
     'db_query' => [
         'enabled' => env('LOG_SQL_ENABLE', true),
+        'filter' => [
+            '/t/',
+            '/telescope/',
+            '/h/',
+            '/horizon/',
+        ],
     ],
 
     'request' => [
         'enabled' => env('LOG_REQUEST_ENABLE', true),
+        'filter' => [
+            '/t/',
+            '/telescope/',
+            '/h/',
+            '/horizon/',
+        ]
     ],
 
     'tofile' => env('LOG_TO_FILE', true),
     'toes' => env('LOG_TO_ES', false),
+
+    'queue_name' => env('LOG_QUEUE_NAME', 'elog'),
 
     'channels' => [
         'e_stack' => [

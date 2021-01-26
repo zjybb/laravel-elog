@@ -4,13 +4,13 @@ namespace Duduke\Elog\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 
 class ELog implements ShouldQueue
 {
-    use InteractsWithQueue, Queueable;
+    use Dispatchable, InteractsWithQueue, Queueable;
 
-    public $queue = 'log';
     public $backoff = 5;
     public $tries = 2;
 

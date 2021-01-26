@@ -24,6 +24,10 @@ class RequestLog
     {
         if (config('elog.request.enabled', true)) {
 
+            if (Str::startsWith(request()->getPathInfo(), config('elog.request.filter', []))) {
+                return;
+            }
+
             $start = $request->server('REQUEST_TIME_FLOAT');
             $end = microtime(true);
             $context = [
@@ -34,12 +38,12 @@ class RequestLog
 //                'response' => $response instanceof Response ? json_decode($response->getContent(), true) : (string)$response,
             ];
 
-            dispatch(new ELog('request', $context));
+            dispatch(new ELog('request', $context))->onQueue(config('elog.queue_name', 'elog'));
         }
 
         if (config('elog.db_query.enabled', true)) {
             $query = request()->server->get('db_query');
-            !is_null($query) && dispatch(new ELog('db_query', $query));
+            !is_null($query) && dispatch(new ELog('db_query', $query))->onQueue(config('elog.queue_name', 'elog'));
         }
 
     }
