@@ -65,7 +65,7 @@ return [
             'driver' => 'monolog',
             'level' => 'debug',
             'handler' => \Monolog\Handler\ElasticsearchHandler::class,
-            'formatter' => \Duduke\Elog\EsFormat::class,
+            'formatter' => \Xiaozhu\ELog\EsFormat::class,
             'formatter_with' => [
                 'index' => 'logs',
                 'type' => '_doc',

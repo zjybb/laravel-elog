@@ -1,21 +1,21 @@
 {
-    "name": "duduke/e-log",
+    "name": "xiaozhu/e-log",
     "description": "log format",
     "authors": [
         {
-            "name": "duduke",
+            "name": "xiaozhu",
             "email": "346107105@qq.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Duduke\\Elog\\": "src/"
+            "Xiaozhu\\ELog\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Duduke\\Elog\\Providers\\ServiceProvider"
+                "Xiaozhu\\ELog\\Providers\\ServiceProvider"
             ]
         }
     },

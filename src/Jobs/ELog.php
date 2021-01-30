@@ -1,6 +1,6 @@
 <?php
 
-namespace Duduke\Elog\Jobs;
+namespace Xiaozhu\ELog\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

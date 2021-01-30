@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Duduke\Elog;
+namespace Xiaozhu\ELog;
 
 use Illuminate\Support\Arr;
 use Monolog\Formatter\ElasticsearchFormatter;

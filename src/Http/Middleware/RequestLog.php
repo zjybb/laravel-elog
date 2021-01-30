@@ -1,9 +1,9 @@
 <?php
 
-namespace Duduke\Elog\Http\Middleware;
+namespace Xiaozhu\ELog\Http\Middleware;
 
 use Closure;
-use Duduke\Elog\Jobs\ELog;
+use Xiaozhu\ELog\Jobs\ELog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
